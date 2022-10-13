@@ -1,1 +1,3 @@
-# simple_python_project
+# Simple Python Project
+## Git Instructions
+* To clone a repository run `$ git clone <link.git>`
