@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="calculator-super-duper",
+    name="calculator",
     version="0.0.3",
     description="Simple python calculator",
     long_description=long_description,
