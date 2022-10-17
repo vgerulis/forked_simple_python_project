@@ -11,7 +11,7 @@ def sum(a: int, b: int) -> int:
 
 if __name__ == "__main__":
     kintamas = "zodis"
-    kintamas = str(sum(10, 10))
+    kintamas = sum(10, 10)
     kintamas1 = sum(10, 10)
 
     c = Calculator()
