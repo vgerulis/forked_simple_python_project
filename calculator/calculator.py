@@ -1,4 +1,6 @@
-from calculator.utils.helpers import convert_to_int
+from typing import Optional
+
+from calculator.utils.helpers import calculator_logger, input_parser, timer
 
 
 class Calculator:
@@ -13,26 +15,38 @@ class Calculator:
         self._memory = 0
         return self._memory
 
-    def add(self, a: int) -> int:
-        converted_a = convert_to_int(a)
-        if converted_a:
-            self._memory += converted_a
+    @timer
+    @calculator_logger
+    @input_parser
+    def add(self, a: Optional[int] = None, b: Optional[int] = None) -> int:
+        if a:
+            self._memory += a
+        if b:
+            self._memory += b
         return self._memory
 
-    def sub(self, a: int) -> int:
-        converted_a = convert_to_int(a)
-        if converted_a:
-            self._memory -= converted_a
+    @timer
+    @calculator_logger
+    @input_parser
+    def sub(self, a: Optional[int] = None, b: Optional[int] = None) -> int:
+        if a:
+            self._memory -= a
+        if b:
+            self._memory -= b
         return self._memory
 
-    def mul(self, a: int) -> int:
-        converted_a = convert_to_int(a)
-        if converted_a:
-            self._memory *= converted_a
+    @timer
+    @calculator_logger
+    @input_parser
+    def mul(self, a: Optional[int]) -> int:
+        if a:
+            self._memory *= a
         return self._memory
 
-    def pow(self, a: int) -> int:
-        converted_a = convert_to_int(a)
-        if converted_a:
+    @timer
+    @calculator_logger
+    @input_parser
+    def pow(self, a: Optional[int]) -> int:
+        if a:
             self._memory = self._memory**a
         return self._memory
