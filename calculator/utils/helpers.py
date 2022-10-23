@@ -1,7 +1,7 @@
 from typing import Callable, Optional
 import logging
 logging.basicConfig(filename="output.log", level=logging.INFO)
-
+import time
 
 def calculator_logger(fn: Callable) -> Callable:
     def calculator_logger(*args, **kwargs):
@@ -9,9 +9,13 @@ def calculator_logger(fn: Callable) -> Callable:
         return fn(*args, **kwargs)
     return calculator_logger
 
-# def timer(fn: Callable) -> Callable:
-#     # TODO: Log how much time has passed
-#     pass
+def timer(fn):
+    def track_time(*args, **kwargs):
+        start_time = time.time()
+        res = fn(*args, **kwargs)
+        execution_time = f"Execution time {time.time() - start_time}"
+        return res, execution_time
+    return track_time
 
 def input_parser(fn: Callable) -> Callable:
     def convert_to_int(*args) -> Optional[int]:
