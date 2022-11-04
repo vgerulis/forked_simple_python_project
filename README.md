@@ -13,3 +13,4 @@ This is a simple addition to the README file
 * To not to track files with git, create a file `.gitignore`
 * To remove cached files, run `$ git rm -rf . --cached`
 # Pull request
+# Test commit
